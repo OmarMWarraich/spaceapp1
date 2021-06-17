@@ -1,11 +1,17 @@
 import React from 'react'
+import { useLaunchListQuery } from '../../generated/graphql';
+import LaunchList from './LaunchList';
 
-const index = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const LaunchListContainer = () => {
+    const { data, error, loading } = useLaunchListQuery();
+    if( loading ){
+        return<div>Loading ...</div>
+    }
 
-export default index
+    if(error || !data ){
+        return<div>ERROR</div>
+    }
+    return <LaunchList data={data}/>
+};
+
+export default LaunchListContainer

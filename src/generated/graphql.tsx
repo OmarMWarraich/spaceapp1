@@ -846,7 +846,7 @@ export const LaunchProfileDocument = gql`
  *   },
  * });
  */
-export function useLaunchProfileQuery(baseOptions: Apollo.QueryHookOptions<LaunchProfileQuery, LaunchProfileQueryVariables>) {
+export function useLaunchProfileQuery(baseOptions?: Apollo.QueryHookOptions<LaunchProfileQuery, LaunchProfileQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<LaunchProfileQuery, LaunchProfileQueryVariables>(LaunchProfileDocument, options);
       }
